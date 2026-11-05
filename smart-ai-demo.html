@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#101827">
+<title>Smart AI | دستیار هوشمند</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#0b1220;color:#f4f7fb;min-height:100vh;display:flex;flex-direction:column}header{padding:18px 16px;background:#111c2e;border-bottom:1px solid #263449;display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#16c79a,#2878e8);display:grid;place-items:center;font-weight:bold;font-size:20px}header h1{font-size:19px;margin:0}header p{font-size:12px;color:#9fb0c6;margin:5px 0 0}main{width:min(760px,100%);margin:0 auto;padding:18px 14px;display:flex;flex-direction:column;gap:14px;flex:1}.welcome{background:#142238;border:1px solid #293b55;border-radius:18px;padding:18px;line-height:1.9}.welcome h2{font-size:18px;margin:0 0 8px}.welcome p{margin:0;color:#bdcadd;font-size:14px}.chat{display:flex;flex-direction:column;gap:12px;flex:1}.msg{max-width:88%;padding:12px 14px;border-radius:16px;line-height:1.9;font-size:14px;white-space:pre-wrap}.bot{align-self:flex-start;background:#1a2a40;border:1px solid #2b405d;border-top-right-radius:5px}.user{align-self:flex-end;background:#176d64;border-top-left-radius:5px}.composer{position:sticky;bottom:0;background:#0b1220;padding:12px 0 18px;display:flex;gap:8px}textarea{resize:none;min-height:48px;max-height:120px;flex:1;border:1px solid #34465e;border-radius:14px;background:#142238;color:white;padding:13px;font:14px Tahoma;outline:none}textarea:focus{border-color:#22b99a}button{border:0;border-radius:14px;background:#16a889;color:white;padding:0 19px;font:bold 14px Tahoma}button:active{transform:scale(.97)}.note{text-align:center;color:#8292a8;font-size:11px;padding-bottom:12px}
+</style></head>
+<body><header><div class="logo">AI</div><div><h1>Smart AI</h1><p>دستیار هوشمند فارسی</p></div></header>
+<main><section class="welcome"><h2>سلام! به Smart AI خوش آمدی 👋</h2><p>پیامت را بنویس تا پاسخ نمونه را ببینی. این نسخه آزمایشی است و هنوز به موتور هوش مصنوعی واقعی وصل نشده است.</p></section>
+<section class="chat" id="chat" aria-live="polite"><div class="msg bot">من نسخه آزمایشی Smart AI هستم. چطور می‌توانم کمکت کنم؟</div></section>
+<form class="composer" id="form"><textarea id="message" rows="1" placeholder="پیامت را اینجا بنویس..." aria-label="پیام"></textarea><button type="submit">ارسال</button></form>
+<div class="note">نسخه نمایشی — پاسخ‌ها نمونه هستند و تحلیل یا سیگنال واقعی بازار ارائه نمی‌کنند.</div></main>
+<script>
+const form=document.getElementById('form'),input=document.getElementById('message'),chat=document.getElementById('chat');
+function addMessage(text,who){const el=document.createElement('div');el.className='msg '+who;el.textContent=text;chat.appendChild(el);el.scrollIntoView({behavior:'smooth',block:'end'});}
+form.addEventListener('submit',e=>{e.preventDefault();const text=input.value.trim();if(!text)return;addMessage(text,'user');input.value='';setTimeout(()=>addMessage('پیامت دریافت شد. برای پاسخ هوشمند واقعی، باید این صفحه را به یک سرویس هوش مصنوعی متصل کنیم. فعلاً این فقط نسخه آزمایشی است.','bot'),450);});
+input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();form.requestSubmit();}});
+</script></body></html>
